@@ -38,8 +38,8 @@
     .message-box table tr.top table td.title {
         font-size: 38px;
         line-height: 24px;
-        color: #f25400;
-        border-bottom: 1px solid #f25400;
+        color: #5226ca;
+        border-bottom: 1px solid #5226ca;
         
     }
     
@@ -88,7 +88,7 @@
                     <table>
                         <tr>
                             <td class="title">
-                                <strong>eSender 2019 </strong>
+                                <strong>eSender 2020 </strong>
                             </td>                                                            
                        </tr>
                     </table>

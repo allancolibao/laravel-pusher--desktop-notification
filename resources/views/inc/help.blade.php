@@ -63,7 +63,7 @@
                 
                 <h3>4.	Click “Send Now” button.</h3>
                   <div>
-                    <img src="{{ asset('sc/btn.png') }}" alt="" width="10%">
+                    <img src="{{ asset('sc/btn.png') }}" alt="" width="15%">
                   </div><br>
                   <p><i><strong>NOTE: Please make sure that you are connected in the internet and have good signal before clicking the “Send Now” button.</strong></i></p>
             </div>

@@ -2,15 +2,14 @@
 
 @section('content') 
 <div class="content">
-    <div class="container-fluid">
+    <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <div class="carduser">
-                    <div class="header">
-                        <h4 class="title">Send files<span><p class="category">A NSIS staff will respond promptly to your concern.</p></span></h4> 
-                    </div>
-                   
                     <div class="content">
+                        <div class="header" style="padding-bottom:2vmin;">
+                            <h3 class="title">Send files<span><p class="category">A NSIS staff will respond promptly to your concern.</p></span></h3> 
+                        </div>
                         @include('inc.messages')
                         <form role="form" method="post" action="{{ route('send.store') }}"  enctype="multipart/form-data">
                             {{csrf_field()}}
@@ -18,32 +17,32 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>Name</label> *
-                                        <input type="text" class="form-control" name="name" placeholder="Name" value="" autofocus>
+                                        <input type="text" class="form-control" name="name" placeholder="Juan Dela Cruz" value="" autofocus>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">User name</label> *
-                                        <input type="text" class="form-control" name="username"  placeholder="Username" value="" >
+                                        <input type="text" class="form-control" name="username"  placeholder="IT-JUAN" value="" >
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>Email</label> *
-                                        <input type="email" class="form-control" name="email" placeholder="Email" value="">
+                                        <input type="email" class="form-control" name="email" placeholder="juandelacruz@gmail.com" value="">
                                     </div>
                                 </div>
                                 <div class="">
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Team</label> *
-                                                <input type="number"  class="form-control" name="team" placeholder="Team" value="">
+                                                <input type="number" style="any"  class="form-control" name="team" placeholder="99" value="">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Subteam</label> *
-                                                <input type="number"  class="form-control" name="subteam" placeholder="Subteam" value="">
+                                                <input type="number" style="any"  class="form-control" name="subteam" placeholder="99" value="">
                                             </div>
                                        </div>
                                 </div>        

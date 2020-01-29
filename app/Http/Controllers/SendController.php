@@ -78,8 +78,8 @@ class SendController extends Controller
       {    
 
         //For gmail//
-        $message->from('enns.2019@gmail.com', 'eSender 2019');
-        $message->to('enns.spiceworks@gmail.com', 'Admin')->subject($data['subject']);
+        $message->from('esender.2020@gmail.com', 'eSender 2020');
+        $message->to('esender.2020@gmail.com', 'Admin')->subject($data['subject']);
 
         //For yahoo//
         // $message->from('enns.2019@yahoo.com', 'eSender 2019');
@@ -102,7 +102,7 @@ class SendController extends Controller
       Mail::send('email.notification', $data, function($message) use ($data, $request)
       {    
         //For gmail//
-        $message->from('enns.2019@gmail.com', 'eSender 2019');
+        $message->from('esender.2020@gmail.com', 'eSender 2020');
         $message->to($request['email'])->subject('eSender Notification');
 
         //For yahoo//

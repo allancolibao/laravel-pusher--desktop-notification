@@ -24,8 +24,11 @@
                  <p> &nbsp;&nbsp;&nbsp;&#9673;&nbsp;Added form validation for type of attachments</p><br>
                  <p> 10/08/2019 - Version 1.1.0</p>
                  <p> &nbsp;&nbsp;&nbsp;&#9673;&nbsp;Added help page for users</p>
-                 <p> &nbsp;&nbsp;&nbsp;&#9673;&nbsp;Added form validation based on selected type of attachment</p><br>
-                
+                 <p> &nbsp;&nbsp;&nbsp;&#9673;&nbsp;Added form validation based on selected type of attachment</p><hr>
+                 <p> 01/28/2020 - Version 1.1.1</p>
+                 <p> &nbsp;&nbsp;&nbsp;&#9673;&nbsp;ENNS 2020 version of eSender</p>
+                 <p> &nbsp;&nbsp;&nbsp;&#9673;&nbsp;New email</p><br>
+  
           </div>
         </div>
       </div>

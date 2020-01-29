@@ -23,7 +23,7 @@
 </head>
 <div >
         <nav class="navbar navbar-default navbar-fixed" role="navigation">
-                <div class="container-fluid">
+                <div class="container">
                     <div class="navbar-header">
                          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
                             <span class="sr-only">Toggle navigation</span>
@@ -31,7 +31,7 @@
                             <span class="icon-bar" style="background-color:aliceblue;"></span>
                             <span class="icon-bar" style="background-color:aliceblue;"></span>
                         </button>
-                        <a class="navbar-brand text" href="{{ url('/send') }}">Welcome to the eSender <i class="pe-7s-plane"></i></a>                       
+                        <a class="navbar-brand text" href="{{ url('/send') }}">eSender 2020 <i class="pe-7s-plane"></i></a>                       
                     </div>
                     <div class="collapse navbar-collapse" id="navigation-example-2">
                         <!-- Right Side Of Navbar -->
@@ -61,7 +61,6 @@
 
     <!-- Core -->
     <script src="{{ asset('js/app.js') }}"></script>
-    <script src="{{ asset('js/dashboard.js') }}"></script>
 
     <!-- Notification -->
     <script src="{{ asset('js/pusher.min.js') }}"></script>
