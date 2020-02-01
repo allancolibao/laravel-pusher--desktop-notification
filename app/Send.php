@@ -8,5 +8,5 @@ class Send extends Model
 {
     public $table = 'sends';
 
-    public $fillable = ['name','username','team','subteam','subject','message' ];
+    public $fillable = ['name','username','team','subteam','subject','type','message' ];
 }

@@ -15,7 +15,6 @@
 
     <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/dashboard.css')}}">
-    <link rel="stylesheet" href="{{asset('css/notif.css')}}">
     <link rel="stylesheet" href="{{asset('css/icon.css')}}">
     <link rel="stylesheet" href="{{asset('css/font.min.css')}}">
     

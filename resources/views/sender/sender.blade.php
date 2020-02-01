@@ -7,10 +7,10 @@
             <div class="col-md-12">
                 <div class="carduser">
                     <div class="content">
-                        <div class="header" style="padding-bottom:2vmin;">
-                            <h3 class="title">Send files<span><p class="category">A NSIS staff will respond promptly to your concern.</p></span></h3> 
+                        <div class="header" style="padding-bottom:1vmin;">
+                            <h3 class="title">Send files<span><p class="category">We will respond promptly to your concern.</p></span></h3> 
+                            @include('inc.messages')
                         </div>
-                        @include('inc.messages')
                         <form role="form" method="post" action="{{ route('send.store') }}"  enctype="multipart/form-data">
                             {{csrf_field()}}
                             <div>

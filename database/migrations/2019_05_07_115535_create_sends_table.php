@@ -19,7 +19,8 @@ class CreateSendsTable extends Migration
             $table->string('username'); 
             $table->string('team'); 
             $table->string('subteam'); 
-            $table->string('subject'); 
+            $table->string('subject');
+            $table->string('type'); 
             $table->text('message');
             $table->timestamps(); 
         });

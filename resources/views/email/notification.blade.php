@@ -119,7 +119,7 @@
                             <td>
                                <strong> Hello! Team - {{ $team }}  Subteam - {{ $subteam }},</strong><br><br>
                                We have successfully received your email via eSender.<br>
-                               A NSIS staff will respond promptly to your issue and concern.<br><br>
+                               We will respond promptly to your queries and concerns.<br><br>
 
                                Subject : {{ $subject }}<br>
                                Date and time : {{ date('m-d-Y - H:i:s') }}<br><br>
