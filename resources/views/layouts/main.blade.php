@@ -64,7 +64,7 @@
 
     <!-- Notification -->
     <script src="{{ asset('js/pusher.min.js') }}"></script>
-    <script src="{{ asset('js/desktopnotif.js') }}"></script>
+    {{-- <script src="{{ asset('js/desktopnotif.js') }}"></script> --}}
 
     <!-- Sender Add Multiple Input-->
     <script src="{{ asset('js/addfunction.js') }}"></script>

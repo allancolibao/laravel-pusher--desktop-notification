@@ -19,7 +19,8 @@
                     <p>a.	Anthropometric = NSIS Forms C, D & E</p>
                     <p>b.	Dietary = iDR and NSIS Form C</p>
                     <p>c. eDCS Backup = Consolidated file</p>
-                    <p>d.	Other Concerns = Inquiries or Report a problem</p>
+                    <p>d. Salt Form = Salt Form Control List</p>
+                    <p>e.	Other Concerns = Inquiries or Report a problem</p>
                   <div class="screenshot">
                     <img src="{{ asset('sc/type.jpg') }}" alt="" width="100%">
                   </div><br>
@@ -27,6 +28,7 @@
                     <p>&#10095;&nbsp;&nbsp;Anthropometric required atleast 1 attachment</p>
                     <p>&#10095;&nbsp;&nbsp;Dietary required atleast 2 attachments</p>
                     <p>&#10095;&nbsp;&nbsp;eDCS Backup required atleast 1 attachment</p>
+                    <p>&#10095;&nbsp;&nbsp;Salt Sample required atleast 1 attachment</p>
                     <p>&#10095;&nbsp;&nbsp;Other Concerns required atleast 1 attachment</p>
                   <div class="screenshot">
                     <img src="{{ asset('sc/req.jpg') }}" alt="" width="100%">

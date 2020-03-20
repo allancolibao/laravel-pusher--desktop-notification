@@ -33,87 +33,114 @@ class SendController extends Controller
     public function sendUsPost(Request $request) 
     {
 
-      $rules = array(
-         'name' => 'required', 
-         'username' => 'required', 
-         'team' => 'required', 
-         'subteam' => 'required' , 
-         'subject' => 'required',
-         'type' => 'required', 
-         'message' => 'required',
-         'filename' => 'required',
-         'filename.*' => 'max:5000|mimes:jpeg,png,jpg,gif,svg,txt,pdf,ppt,docx,doc,xls,xlsx,zip',
-         );
-     
-         $validator = Validator::make ( Input::all(), $rules);
-        if ($validator->fails())
-        return redirect('/send')->with('error', 'You got an error, Please try again!');
+      $connected = @fsockopen("www.google.com", 80); 
+                                       
+      if ($connected){
+
+        $is_conn = true; 
+
+        $rules = array(
+          'name' => 'required', 
+          'username' => 'required', 
+          'team' => 'required', 
+          'subteam' => 'required', 
+          'subject' => 'required',
+          'type' => 'required', 
+          'message' => 'required',
+          'filename' => 'required',
+          'filename.*' => 'max:5000|mimes:jpeg,png,jpg,gif,svg,txt,pdf,ppt,docx,doc,xls,xlsx,zip',
+          );
+      
+          $validator = Validator::make ( Input::all(), $rules);
+          if ($validator->fails())
+          return redirect('/send')->with('error', 'You got an error, Please try again!');
 
         // File saving in DB
         // Send::create($request->all());
-        
-      else{
-      $data = array(
-        'name' => $request->get('name'),
-        'username' => $request->get('username'),
-        'email' => $request->get('email'),
-        'team' => $request->get('team'),
-        'subteam' => $request->get('subteam'),
-        'subject' => $request->get('type').' - '.$request->get('subject'),
-        'type' => $request->get('type'),
-        'user_message' => $request->get('message')
-      );
-     
-      //Looping the attachments
-      foreach($request->file('filename') as $attachment) 
-      {
-        $attachments[] = [
-                            'file' => $attachment->getRealPath(),
-                            'options' => ['mime' => $attachment->getClientMimeType(), 'as' => $attachment->getClientOriginalName() ],
-                          ];
-      }
+          
+        else {
+        $data = array(
+          'name' => $request->get('name'),
+          'username' => $request->get('username'),
+          'email' => $request->get('email'),
+          'team' => $request->get('team'),
+          'subteam' => $request->get('subteam'),
+          'subject' => $request->get('type').' - '.$request->get('subject'),
+          'type' => $request->get('type'),
+          'user_message' => $request->get('message')
+        );
       
-      //Sending the email
-      Mail::send('email.template', $data, function($message) use ($data, $attachments, $request)
-      {    
-
-        //For gmail//
-        $message->from('esender.2020@gmail.com', 'eSender 2020');
-        $message->to('esender.2020@gmail.com', 'Admin')->subject($data['subject']);
-
-        //For yahoo//
-        // $message->from('enns.2019@yahoo.com', 'eSender 2019');
-        // $message->to('ennsurvey@yahoo.com', 'Admin')->subject($data['subject']);
-
-        //For attachments//
-        foreach($attachments as $attachment) {
-          $message->attach($attachment['file'],$attachment['options']);
+        //Looping the attachments
+        foreach($request->file('filename') as $attachment) 
+        {
+          $attachments[] = [
+                              'file' => $attachment->getRealPath(),
+                              'options' => ['mime' => $attachment->getClientMimeType(), 'as' => $attachment->getClientOriginalName() ],
+                            ];
         }
+
+
+        
+        //Sending the email
+        Mail::send('email.template', $data, function($message) use ($data, $attachments, $request)
+        {    
+
+          //For gmail//
+          $message->from('esender.2019@gmail.com', 'eSender 2020');
+
+          if($data['type'] == 'Dietary'){
+            $message->to('esender.2020.dietary@gmail.com', 'Admin')->subject($data['subject']);
+          } else if($data['type'] == 'Food Item' ){
+            $message->to('esender.2020.fooditem@gmail.com', 'Admin')->subject($data['subject']);
+          }else{
+            $message->to('esender.2020@gmail.com', 'Admin')->subject($data['subject']);
+          }
+          
+
+          //For yahoo//
+          // $message->from('enns.2019@yahoo.com', 'eSender 2019');
+          // $message->to('ennsurvey@yahoo.com', 'Admin')->subject($data['subject']);
+
+          //For attachments//
+          foreach($attachments as $attachment) {
+            $message->attach($attachment['file'],$attachment['options']);
+          }
+        
+          //For pusher notifications//
+          $name = request()->name;
+          event(new adminNotif($name));
+
+          return $message;
+
+        });
+
+        // For Email notification
+        Mail::send('email.notification', $data, function($message) use ($data, $request)
+        {    
+          //For gmail//
+          $message->from('esender.2019@gmail.com', 'eSender 2020');
+          $message->to($request['email'])->subject('eSender Notification');
+
+          //For yahoo//
+          // $message->from('enns.2019@yahoo.com', 'eSender 2019');
+          // $message->to($request['email'])->subject('eSender Notification');
+
+          return $message;
+
+        });
+
+        
+      return back()->with('success', 'Successfully sent, Please check your email for the confirmation');
+      }     
       
-        //For pusher notifications//
-        $name = request()->name;
-        event(new adminNotif($name));
+      fclose($connected);
 
-        return $message;
+    } else {
 
-      });
+      $is_conn = false; 
 
-      // For Email notification
-      Mail::send('email.notification', $data, function($message) use ($data, $request)
-      {    
-        //For gmail//
-        $message->from('esender.2020@gmail.com', 'eSender 2020');
-        $message->to($request['email'])->subject('eSender Notification');
+      return back()->with('error', 'Please check your internet connection, Thank you!');
 
-        //For yahoo//
-        // $message->from('enns.2019@yahoo.com', 'eSender 2019');
-        // $message->to($request['email'])->subject('eSender Notification');
-
-        return $message;
-
-      });
-
-     return back()->with('success', 'Successfully sent, Please check your email for the confirmation');
     }
   }
 

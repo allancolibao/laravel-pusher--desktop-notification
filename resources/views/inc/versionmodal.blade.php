@@ -21,14 +21,23 @@
                  <p> &nbsp;&nbsp;&nbsp;&#9673;&nbsp;Added email notification for users</p><hr>
                  <p> 09/03/2019 - Version 1.0.5</p>
                  <p> &nbsp;&nbsp;&nbsp;&#9673;&nbsp;Modified email template for user notification</p>
-                 <p> &nbsp;&nbsp;&nbsp;&#9673;&nbsp;Added form validation for type of attachments</p><br>
+                 <p> &nbsp;&nbsp;&nbsp;&#9673;&nbsp;Added form validation for type of attachments</p><hr>
                  <p> 10/08/2019 - Version 1.1.0</p>
                  <p> &nbsp;&nbsp;&nbsp;&#9673;&nbsp;Added help page for users</p>
                  <p> &nbsp;&nbsp;&nbsp;&#9673;&nbsp;Added form validation based on selected type of attachment</p><hr>
                  <p> 01/28/2020 - Version 1.1.1</p>
                  <p> &nbsp;&nbsp;&nbsp;&#9673;&nbsp;ENNS 2020 version of eSender</p>
-                 <p> &nbsp;&nbsp;&nbsp;&#9673;&nbsp;New email</p><br>
-  
+                 <p> &nbsp;&nbsp;&nbsp;&#9673;&nbsp;New email</p><hr>
+                 <p> 02/28/2020 - Version 1.1.2</p>
+                 <p> &nbsp;&nbsp;&nbsp;&#9673;&nbsp;Added separate email for dietary</p>
+                 <p> &nbsp;&nbsp;&nbsp;&#9673;&nbsp;Modified email template for user notification</p><hr>
+                 <p> 03/03/2020 - Version 1.1.3</p>
+                 <p> &nbsp;&nbsp;&nbsp;&#9673;&nbsp;Added Food Item List in type of attachment</p>
+                 <p> &nbsp;&nbsp;&nbsp;&#9673;&nbsp;Added separate email for food item list</p>
+                 <p> &nbsp;&nbsp;&nbsp;&#9673;&nbsp;Added Internet connection checking</p><hr>
+                 <p> 03/03/2020 - Version 1.1.4</p>
+                 <p> &nbsp;&nbsp;&nbsp;&#9673;&nbsp;Customized environment file</p>
+                 <p> &nbsp;&nbsp;&nbsp;&#9673;&nbsp;Configured sending email security</p><br>
           </div>
         </div>
       </div>

@@ -57,9 +57,11 @@
                                         <label >Type of Attachment</label> * 
                                         <select id="type" class="form-control" name="type">   
                                             <option value="">Please select</option>
-                                            <option value="Anthropometric">Anthropometric</option>
-                                            <option value="Dietary">Dietary</option>
+                                            <option value="Anthropometric">Anthropometric (NSIS FORMs)</option>
+                                            <option value="Dietary">Dietary (iDR & NSIS FORMs)</option>
                                             <option value="eDCS Backup">eDCS Backup</option> 
+                                            <option value="Salt Sample">Salt Sample Control List</option>
+                                            <option value="Food Item">Food Item List</option>
                                             <option value="Other Concerns">Other Concerns</option>                                      
                                         </select>
                                     </div>
