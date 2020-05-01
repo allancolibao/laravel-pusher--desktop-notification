@@ -24,7 +24,7 @@
         dir : "ltr"
     };
 
-    var notification = new Notification("eSender 2019",options);
+    var notification = new Notification("eSender 2020",options);
         notification.onclick = function() {
         window.open("https://mail.google.com/mail");
     };
@@ -44,7 +44,7 @@
         icon: "img/sender.png",
         dir : "ltr"
     };
-    var notification = new Notification("eSender",options);
+    var notification = new Notification("eSender 2020",options);
         notification.onclick = function() {
         window.open("https://mail.google.com/mail");
     };

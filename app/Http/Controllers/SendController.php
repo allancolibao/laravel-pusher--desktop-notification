@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Str;
 use App\Http\Requests;
 use Carbon\Carbon;
 use App\Send;
@@ -25,7 +26,11 @@ class SendController extends Controller
     */
     public function sendUs()
     {
-        return view('sender.sender');
+      $path = storage_path() . "\app\public\json\localsurveyareas.json";
+
+      $json = json_decode(file_get_contents($path), true); 
+
+      return view('sender.sender', compact('json'));
     }
 
   
@@ -42,6 +47,7 @@ class SendController extends Controller
         $rules = array(
           'name' => 'required', 
           'username' => 'required', 
+          'email' => 'required',
           'team' => 'required', 
           'subteam' => 'required', 
           'subject' => 'required',
@@ -53,10 +59,8 @@ class SendController extends Controller
       
           $validator = Validator::make ( Input::all(), $rules);
           if ($validator->fails())
-          return redirect('/send')->with('error', 'You got an error, Please try again!');
+          return redirect('/send')->with('error', 'You got an error, Please try again!')->withInput();
 
-        // File saving in DB
-        // Send::create($request->all());
           
         else {
         $data = array(
@@ -71,15 +75,15 @@ class SendController extends Controller
         );
       
         //Looping the attachments
+        $i = 0;
         foreach($request->file('filename') as $attachment) 
         {
           $attachments[] = [
                               'file' => $attachment->getRealPath(),
                               'options' => ['mime' => $attachment->getClientMimeType(), 'as' => $attachment->getClientOriginalName() ],
                             ];
+          $i++;                 
         }
-
-
         
         //Sending the email
         Mail::send('email.template', $data, function($message) use ($data, $attachments, $request)
@@ -96,10 +100,6 @@ class SendController extends Controller
             $message->to('esender.2020@gmail.com', 'Admin')->subject($data['subject']);
           }
           
-
-          //For yahoo//
-          // $message->from('enns.2019@yahoo.com', 'eSender 2019');
-          // $message->to('ennsurvey@yahoo.com', 'Admin')->subject($data['subject']);
 
           //For attachments//
           foreach($attachments as $attachment) {
@@ -121,16 +121,28 @@ class SendController extends Controller
           $message->from('esender.2019@gmail.com', 'eSender 2020');
           $message->to($request['email'])->subject('eSender Notification');
 
-          //For yahoo//
-          // $message->from('enns.2019@yahoo.com', 'eSender 2019');
-          // $message->to($request['email'])->subject('eSender Notification');
-
           return $message;
 
         });
 
+        // Saving data to database after sending email
+        Send::create([
+          'name' => $request['name'],
+          'username' => $request['username'],
+          'email'=> $request['email'],
+          'team'=> $request['team'],
+          'subteam'=> $request['subteam'],
+          'subject'=> $request['type'].' - '.$request['subject'],
+          'eacode'=> Str::substr($request['subject'], 0, 12),
+          'area_name'=> Str::substr($request['subject'], 15),
+          'type'=> $request['type'],
+          'user_message'=> $request['message'], 
+          'file_count' => $i
+        ]);
+
         
-      return back()->with('success', 'Successfully sent, Please check your email for the confirmation');
+      return back()->with('success', 'Successfully sent, Please check your email for the confirmation')
+                   ->withInput($request->except(['subject','type','message']));
       }     
       
       fclose($connected);
@@ -139,7 +151,7 @@ class SendController extends Controller
 
       $is_conn = false; 
 
-      return back()->with('error', 'Please check your internet connection, Thank you!');
+      return back()->with('error', 'Please check your internet connection, Thank you!')->withInput();
 
     }
   }

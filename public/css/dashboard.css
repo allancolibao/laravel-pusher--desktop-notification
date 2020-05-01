@@ -55,6 +55,10 @@ body {
   box-shadow: inset 0px 0px 0px #d8d8d8, 0px 0px 0px 0px #d8d8d8, 0px 1px 3px #d8d8d8 !important;
 }
 
+.text-area {
+  color: #5226ca !important;
+}
+
 .panel {
   margin-top: 35px;
   border: none !important;

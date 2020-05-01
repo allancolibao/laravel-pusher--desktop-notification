@@ -17,10 +17,15 @@ class CreateSendsTable extends Migration
             $table->increments('id'); 
             $table->string('name'); 
             $table->string('username'); 
+            $table->string('email'); 
             $table->string('team'); 
             $table->string('subteam'); 
             $table->string('subject'); 
-            $table->text('message');
+            $table->string('eacode');
+            $table->string('area_name');
+            $table->string('type'); 
+            $table->text('user_message');
+            $table->string('file_count');
             $table->timestamps(); 
         });
         

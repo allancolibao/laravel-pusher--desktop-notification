@@ -122,3 +122,11 @@ $("#type").change(function () {
         $('input#attachment').val('');
 
 });
+
+
+$("#subject").change(function () {
+    var value = $(this).val();
+    if (value != '') {
+        $("#message_text").html(value).css("color", "#ff8800");
+    }
+});

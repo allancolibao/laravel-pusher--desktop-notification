@@ -138,7 +138,7 @@
                             <tr>
                                 <td>                              
                                     <hr><br>
-                                    &copy; 2019 Nutrition Statistics and Informatics Section (NSIS)<br>
+                                    &copy; {{ now()->year }} Nutrition Statistics and Informatics Section (NSIS)<br>
                                     <small>@include('inc.version')</small>
                                 </td>
                             </tr>

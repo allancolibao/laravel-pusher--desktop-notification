@@ -37,7 +37,11 @@
                  <p> &nbsp;&nbsp;&nbsp;&#9673;&nbsp;Added Internet connection checking</p><hr>
                  <p> 03/03/2020 - Version 1.1.4</p>
                  <p> &nbsp;&nbsp;&nbsp;&#9673;&nbsp;Customized environment file</p>
-                 <p> &nbsp;&nbsp;&nbsp;&#9673;&nbsp;Configured sending email security</p><br>
+                 <p> &nbsp;&nbsp;&nbsp;&#9673;&nbsp;Configured sending email security</p><hr>
+                 <p> 03/03/2020 - Version 1.1.5</p>
+                 <p> &nbsp;&nbsp;&nbsp;&#9673;&nbsp;Retrieve old input</p>
+                 <p> &nbsp;&nbsp;&nbsp;&#9673;&nbsp;Added area datalist on suubject</p>
+                 <p> &nbsp;&nbsp;&nbsp;&#9673;&nbsp;Added saving user data into the server for dashboard use</p><br>
           </div>
         </div>
       </div>
